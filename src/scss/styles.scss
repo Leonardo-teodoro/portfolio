@@ -1,0 +1,25 @@
+// Import all of Bootstrap's CSS
+@import "node_modules/bootstrap/scss/bootstrap";
+$base-color: #fafafa;
+$blue-france: #3083dc;
+$orange-cayola: #ff5a5f;
+$oxford-blue: #011936;
+$light-coral: #ef6f6c;
+
+* {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 15px;
+}
+
+#first-section {
+  background: linear-gradient(
+    116.87deg,
+    rgba(213, 199, 188, 0) 0%,
+    #d5c7bc 97.77%
+  );
+  width: 100vw;
+  height: 100vh;
+}

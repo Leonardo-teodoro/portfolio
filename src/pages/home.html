@@ -1,64 +1,91 @@
 <!-- First-section -->
-<div>
-  <section id="first-section" class="d-flex flex-column justify-content-around">
-    <div class="flex-row">
-      <p>Olá :) Sou</p>
-      <h5>Leonardo Teodoro</h5>
-      <p>Desenvolvedor Front-end</p>
-    </div>
-    <div class="d-flex flex-row col-12 justify-content-center">
-      <img
-        src="./images/programming-char.png"
-        alt="Ilustração de pessoa programando"
-      />
-    </div>
-  </section>
-</div>
+<section id="first-section" class="d-flex flex-column justify-content-evenly">
+  <div class="d-flex flex-column gap-2">
+    <p>Olá :) Eu sou</p>
+    <span class="greetings-name">Leonardo Teodoro</span>
+    <p>Desenvolvedor Front-end</p>
+  </div>
+  <div class="d-flex flex-row col-12 justify-content-center">
+    <img
+      src="./images/programming-char.png"
+      alt="Ilustração de pessoa programando"
+    />
+  </div>
+</section>
 <!-- First-section -->
 
 <!-- About -->
-<div class="d-flex flex-column">
-  <section id="about-section" class="">
-    <div class="col-6">
-      <h2 class="my-4 py-4">Sobre mim</h2>
-      <h5>Olá, me chamo Leonardo e sou apaixonado por tecnologia</h5>
-      <p>
-        Nasci em São paulo e hoje moro em Nova Friburgo, Rio de Janeiro. Sou uma
-        pessoa comunicativa, que faz amizade rapidamente e que promove a
-        harmonia. Meu primeiro contato com tecnologia foi aos meus 10 anos,
-        através de jogos. A partir disso, minha paixão pela tecnologia só
-        cresceu.
-      </p>
-      <p>
-        Aos meus 14 anos, tive contato com robótica e era um dos melhores alunos
-        da sala.
-      </p>
+<section
+  id="about-section"
+  class="d-flex flex-column justify-content-evenly align-items-center"
+>
+  <h5>Sobre mim</h5>
 
-      <p>
-        Quando fiz 19 anos passei em 1º lugar para o curso Sistemas de
-        Informação, no Centro Federal de Educação Tecnológica do Rio de Janeiro
-        (CEFET/RJ). Durante os 4 anos de formação, já atuei como monitor em
-        programação estruturada, como aluno pesquisador em inteligência
-        artificial e como estagiário full stack.
-      </p>
-
-      <p>Hoje procuro me especializar como desenvolvedor frontend</p>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card">
+        <img
+          src="../images/foto-leonardo-teodoro.jpeg"
+          class="card-img-top"
+          alt="Foto do autor"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Nova Friburgo, Rio de Janeiro</h5>
+          <p class="card-text">
+            Olá, me chamo Leonardo e sou apaixonado por tecnologia.
+          </p>
+          <p class="card-text">
+            Nasci em São paulo e hoje moro em Nova Friburgo, Rio de Janeiro. Sou
+            uma pessoa comunicativa, que faz amizade rapidamente e que promove a
+            harmonia. Meu primeiro contato com tecnologia foi aos meus 10 anos,
+            através de jogos. A partir disso, minha paixão pela tecnologia só
+            cresceu.
+          </p>
+          <p class="card-text">
+            Aos meus 14 anos, tive contato com robótica e era um dos melhores
+            alunos da sala.
+          </p>
+          <p class="card-text">
+            Quando fiz 19 anos passei em 1º lugar para o curso Sistemas de
+            Informação, no Centro Federal de Educação Tecnológica do Rio de
+            Janeiro (CEFET/RJ), campus de Nova Friburgo. Durante os 4 anos de
+            formação, já atuei como monitor em programação estruturada em C,
+            como aluno pesquisador em inteligência artificial, utilizando Python
+            e como estagiário full stack, desenvolvendo com o framework Ruby on
+            Rails.
+          </p>
+          <p class="card-text">
+            Hoje procuro me especializar como Desenvolvedor Front-end.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="transparent-card mx-3 my-3"></div>
-  </section>
-</div>
+  </div>
+</section>
 <!-- About -->
 
 <!-- Education -->
 <div class="my-5">
-  <section class="education-section">Formação acadêmica</section>
+  <section
+    id="education-section"
+    class="d-flex flex-column justify-content-around"
+  >
+    <div class="flex-row">
+      <h5>Formação acadêmica</h5>
+    </div>
+  </section>
 </div>
 
 <!-- Education -->
 
 <!-- Professional-xp -->
 <div class="my-5">
-  <section class="professional-xp-section">Experiência profissional</section>
+  <section
+    id="professional-xp-section"
+    class="d-flex flex-column justify-content-around"
+  >
+    <div class="flex-row">Experiência profissional</div>
+  </section>
 </div>
 
 <!-- Professional-xp -->

@@ -18,7 +18,6 @@ nav {
   background: rgba(44, 44, 44, 0.2);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px);
-  height: 68px;
 }
 main {
   height: 100vh;
@@ -84,9 +83,12 @@ footer {
     rgba(213, 199, 188, 0) 95.68%
   );
   .card {
-    width: 80vw;
+    width: 20rem;
     background: rgba(217, 217, 217, 0.16);
     overflow: auto;
+    p {
+      margin-bottom: 10px;
+    }
   }
   .card-text {
     font-weight: 400;

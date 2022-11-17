@@ -1,11 +1,17 @@
 import View from "./view";
 export default class Controller {
-  #view;
-
+  view;
   constructor() {
     this.view = new View();
+    this.view.listenToNavClick();
   }
-
+  wantsToRenderHome(hash) {
+    try {
+      this.view.renderHome(`/#${hash}`);
+    } catch (e) {
+      this.view.showError(`${e}`, "Erro ao obter página principal!");
+    }
+  }
   wantsToRenderContact() {
     try {
       this.view.renderContact();
@@ -18,13 +24,6 @@ export default class Controller {
       this.view.renderProjects();
     } catch (e) {
       this.view.showError(`${e}`, "Erro ao obter página de projetos!");
-    }
-  }
-  wantsToRenderHome() {
-    try {
-      this.view.renderHome();
-    } catch (e) {
-      this.view.showError(`${e}`, "Erro ao obter página principal!");
     }
   }
 }

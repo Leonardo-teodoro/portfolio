@@ -7,19 +7,15 @@ import Controller from "./controller";
 ("./controller");
 import router from "../router/router";
 
-const navItens = document.querySelector("a[href='#contact-section']");
-
-console.log(navItens);
-
 window.addEventListener("load", () => {
   const controller = new Controller();
   router("/", async function (ctx) {
-    controller.wantsToRenderHome();
+    controller.wantsToRenderHome(ctx.hash);
   });
-  router("/contact", async function (ctx) {
+  router("/contact", async function () {
     controller.wantsToRenderContact();
   });
-  router("/projects", async function (ctx) {
+  router("/projects", async function () {
     controller.wantsToRenderProjects();
   });
 

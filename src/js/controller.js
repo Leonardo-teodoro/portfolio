@@ -7,7 +7,7 @@ export default class Controller {
   }
   wantsToRenderHome(hash) {
     try {
-      this.view.renderHome(`/#${hash}`);
+      this.view.renderHome();
     } catch (e) {
       this.view.showError(`${e}`, "Erro ao obter página principal!");
     }
@@ -24,6 +24,30 @@ export default class Controller {
       this.view.renderProjects();
     } catch (e) {
       this.view.showError(`${e}`, "Erro ao obter página de projetos!");
+    }
+  }
+  wantsToRenderAbout() {
+    try {
+      this.view.renderAbout();
+    } catch (e) {
+      this.view.showError(`${e}`, "Erro ao obter página sobre mim!");
+    }
+  }
+  wantsToRenderProfessionalXp() {
+    try {
+      this.view.renderProfessionalXp();
+    } catch (e) {
+      this.view.showError(
+        `${e}`,
+        "Erro ao obter página de experiência profissional!"
+      );
+    }
+  }
+  wantsToRenderEducation() {
+    try {
+      this.view.renderEducation();
+    } catch (e) {
+      this.view.showError(`${e}`, "Erro ao obter página de formação!");
     }
   }
 }

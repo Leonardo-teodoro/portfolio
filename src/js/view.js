@@ -1,28 +1,32 @@
-import { changeContent, getFileContent } from "../utils/util.js";
 export default class View {
   // Render methods
 
-  async renderHome(hash) {
-    changeContent(await getFileContent("../pages/home.html"));
-    const section = document.getElementById(hash);
-    if (section) window.scrollTo(0, section.offsetTop);
+  renderHome() {
+    this.changeContent("../templates/home.html");
   }
-  async renderContact() {
-    changeContent(await getFileContent("../pages/contact.html"));
+  renderContact() {
+    this.changeContent("../templates/contact.html");
   }
-  async renderProjects() {
-    changeContent(await getFileContent("../pages/projects.html"));
+  renderProjects() {
+    this.changeContent("../templates/projects.html");
+  }
+  renderAbout() {
+    this.changeContent("../templates/about.html");
+  }
+  renderProfessionalXp() {
+    this.changeContent("../templates/professional-xp.html");
+  }
+  renderEducation() {
+    this.changeContent("../templates/education.html");
   }
   // Utility methods
   showError(message) {
     console.log(message);
   }
 
-  highlightNavItem(href) {
+  highlightNavItem(dataLink) {
     this.resetNavHighlight();
-    console.log(href);
-    const navItem = document.querySelector(`a[href="${href}"]`);
-    console.log(navItem);
+    const navItem = document.querySelector(`a[data-link=${dataLink}`);
     navItem.classList.add("active");
   }
 
@@ -32,12 +36,20 @@ export default class View {
       item.classList.remove("active");
     });
   }
+
+  changeContent(templatePath) {
+    const main = $("#content");
+
+    if (main) {
+      main.load(templatePath);
+    }
+  }
   // Listen events methods
   listenToNavClick() {
     const navItens = document.querySelectorAll(".nav-link");
     navItens.forEach((item) => {
       item.addEventListener("click", (ev) => {
-        this.highlightNavItem(item.getAttribute("href"));
+        this.highlightNavItem(item.dataset.link);
       });
     });
   }

@@ -1,10 +1,6 @@
 // Import all of Bootstrap's CSS
 @import "node_modules/bootstrap/scss/bootstrap";
-$base-color: #fafafa;
-$blue-france: #3083dc;
-$orange-cayola: #ff5a5f;
-$oxford-blue: #011936;
-$light-coral: #ef6f6c;
+$light-brown: #d5c7bc;
 
 * {
   font-family: "Roboto";
@@ -24,7 +20,7 @@ nav {
 }
 main {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   h5 {
     font-weight: 600;
     font-size: 26px;
@@ -58,13 +54,13 @@ footer {
 
 #first-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 0 50px 0 50px;
 
   background: linear-gradient(
-    167.95deg,
-    rgba(213, 199, 188, 0) 0%,
-    #d5c7bc 100%
+    160deg,
+    $light-brown 6.47%,
+    rgba(213, 199, 188, 0) 95.68%
   );
 
   p {
@@ -79,26 +75,192 @@ footer {
 }
 
 #about-section {
-  height: 150vh;
+  height: 180vh;
   background: linear-gradient(
-    167.24deg,
-    #d5c7bc 6.47%,
+    220deg,
+    $light-brown 6.47%,
     rgba(213, 199, 188, 0) 95.68%
   );
+  .about-title {
+    margin-top: 80px;
+  }
   .card {
     width: 20rem;
     background: rgba(217, 217, 217, 0.16);
-    overflow: auto;
+
     margin: 20px 0 70px 0;
     p {
       margin-bottom: 10px;
     }
   }
   .card-text {
-    font-weight: 400;
+    line-height: 30px;
     font-size: 16px;
     line-height: 20px;
   }
-  .card-img-top {
+}
+#education-section {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    280deg,
+    $light-brown 0%,
+    rgba(213, 199, 188, 0) 100%
+  );
+
+  .timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    position: absolute;
+    ul {
+      list-style: none;
+      padding: 0;
+      :last-child {
+        margin-bottom: 0px;
+      }
+
+      li {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.52);
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    p {
+      font-weight: 100;
+      font-size: 12px;
+      line-height: 25px;
+    }
+
+    .date {
+      font-size: 11px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #first-section {
+    img {
+      width: 500px;
+      height: 500px;
+    }
+    .container-greetings {
+      padding-left: 20vw;
+    }
+  }
+  #about-section {
+    height: 100%;
+    .about-title {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 15px;
+    }
+    .card {
+      width: 80%;
+      background: rgba(0, 0, 0, 0.52);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
+    }
+    .card-body {
+      padding: 50px;
+      font-style: normal;
+      font-weight: lighter !important;
+      color: #ffffff;
+      p {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  #education-section {
+    background: linear-gradient(
+      167.24deg,
+      $light-brown 6.47%,
+      rgba(213, 199, 188, 0) 95.68%
+    );
+
+    h5 {
+      font-weight: 600 !important;
+      font-size: 24px !important;
+      line-height: 30px !important;
+    }
+    p {
+      font-weight: 100 !important;
+      font-size: 16px !important;
+      line-height: 25px !important;
+    }
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    height: 82vh;
+    width: 2px;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline {
+    ul {
+      :nth-child(odd) {
+        float: left;
+        clear: right;
+        right: 30px;
+        border-radius: 10px 0px 10px 10px !important;
+
+        .date {
+          top: -20px;
+          right: 0px;
+          position: absolute;
+        }
+      }
+      :nth-child(even) {
+        float: right;
+        clear: left;
+        left: 30px;
+        border-radius: 0px 10px 10px 10px !important;
+
+        .date {
+          top: -20px;
+          left: 0px;
+          position: absolute;
+        }
+      }
+      :nth-child(odd)::after {
+        transform: translate(50%, -50%);
+        right: -30px;
+      }
+      :nth-child(even)::after {
+        transform: translate(-50%, -50%);
+        left: -30px;
+      }
+      li {
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+        background: rgba(0, 0, 0, 0.52);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+      }
+      li::after {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        top: 0;
+      }
+      li:hover::after {
+        background-color: $light-brown;
+      }
+    }
   }
 }

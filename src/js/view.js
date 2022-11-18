@@ -2,22 +2,22 @@ export default class View {
   // Render methods
 
   renderHome() {
-    this.changeContent("../templates/home.html");
+    this.changeContent("../templates/home/home.html");
   }
   renderContact() {
-    this.changeContent("../templates/contact.html");
+    this.changeContent("../templates/contact/contact.html");
   }
   renderProjects() {
-    this.changeContent("../templates/projects.html");
+    this.changeContent("../templates/projects/projects.html");
   }
   renderAbout() {
-    this.changeContent("../templates/about.html");
+    this.changeContent("../templates/about/about.html");
   }
   renderProfessionalXp() {
-    this.changeContent("../templates/professional-xp.html");
+    this.changeContent("../templates/professional-xp/professional-xp.html");
   }
   renderEducation() {
-    this.changeContent("../templates/education.html");
+    this.changeContent("../templates/education/education.html");
   }
   // Utility methods
   showError(message) {

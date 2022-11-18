@@ -1,0 +1,46 @@
+@use "../../scss/variables";
+#about-section {
+  height: 180vh;
+  background: linear-gradient(
+    220deg,
+    variables.$light-brown 6.47%,
+    rgba(213, 199, 188, 0) 95.68%
+  );
+  .about-title {
+    margin-top: 80px;
+  }
+  .card {
+    width: 20rem;
+    background: rgba(217, 217, 217, 0.16);
+
+    margin: 20px 0 70px 0;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+  .card-text {
+    line-height: 30px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #about-section {
+    height: 100%;
+    .card {
+      width: 80%;
+      background: rgba(0, 0, 0, 0.52);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
+    }
+    .card-body {
+      padding: 50px;
+      font-style: normal;
+      font-weight: lighter !important;
+      color: #ffffff;
+      p {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

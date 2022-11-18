@@ -1,0 +1,134 @@
+@use "../../scss/variables";
+#education-section {
+  min-height: 120vh;
+  width: 100%;
+  background: linear-gradient(
+    280deg,
+    variables.$light-brown 0%,
+    rgba(213, 199, 188, 0) 100%
+  );
+
+  .timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      :last-child {
+        margin-bottom: 0px;
+      }
+
+      li {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.52);
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    p {
+      font-weight: 100;
+      font-size: 12px;
+      line-height: 25px;
+    }
+
+    .date {
+      font-size: 11px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #education-section {
+    background: linear-gradient(
+      167.24deg,
+      variables.$light-brown 6.47%,
+      rgba(213, 199, 188, 0) 95.68%
+    );
+    min-height: 100vh;
+    h5 {
+      font-weight: 600 !important;
+      font-size: 24px !important;
+      line-height: 30px !important;
+    }
+    p {
+      font-weight: 100 !important;
+      font-size: 16px !important;
+      line-height: 25px !important;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      height: 75vh;
+      width: 2px;
+      background-color: #fff;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline {
+      ul {
+        :nth-child(odd) {
+          float: left;
+          clear: right;
+          right: 30px;
+          border-radius: 10px 0px 10px 10px !important;
+
+          .date {
+            top: -20px;
+            right: 0px;
+            position: absolute;
+          }
+        }
+        :nth-child(even) {
+          float: right;
+          clear: left;
+          left: 30px;
+          border-radius: 0px 10px 10px 10px !important;
+
+          .date {
+            top: -20px;
+            left: 0px;
+            position: absolute;
+          }
+        }
+        :nth-child(odd)::after {
+          transform: translate(50%, -50%);
+          right: -30px;
+        }
+        :nth-child(even)::after {
+          transform: translate(-50%, -50%);
+          left: -30px;
+        }
+        li {
+          width: 50%;
+          margin-bottom: 50px;
+          position: relative;
+          background: rgba(0, 0, 0, 0.52);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(2px);
+        }
+        li::after {
+          content: "";
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          border-radius: 10px;
+          background-color: #fff;
+          top: 0;
+        }
+        li:hover::after {
+          background-color: variables.$light-brown;
+        }
+      }
+    }
+  }
+}

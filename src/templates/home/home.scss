@@ -1,0 +1,39 @@
+@use "../../scss/variables";
+#first-section {
+  height: 100vh;
+  width: 100%;
+  padding: 0 50px 0 50px;
+
+  background: linear-gradient(
+    160deg,
+    variables.$light-brown 6.47%,
+    rgba(213, 199, 188, 0) 95.68%
+  );
+
+  p {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  .greetings-name {
+    font-size: 32px !important;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #first-section {
+    img {
+      width: 500px;
+      height: 500px;
+    }
+    .container-greetings {
+      padding-left: 20vw;
+    }
+  }
+}

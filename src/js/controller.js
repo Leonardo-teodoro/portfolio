@@ -1,3 +1,4 @@
+import ProjectService from "./projectService";
 import View from "./view";
 export default class Controller {
   view;
@@ -5,7 +6,7 @@ export default class Controller {
     this.view = new View();
     this.view.listenToNavClick();
   }
-  wantsToRenderHome(hash) {
+  wantsToRenderHome() {
     try {
       this.view.renderHome();
     } catch (e) {
@@ -21,7 +22,7 @@ export default class Controller {
   }
   wantsToRenderProjects() {
     try {
-      this.view.renderProjects();
+      this.view.renderProjects(this.getProjectDescription.bind(this));
     } catch (e) {
       this.view.showError(`${e}`, "Erro ao obter página de projetos!");
     }

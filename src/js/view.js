@@ -2,22 +2,23 @@ export default class View {
   // Render methods
 
   renderHome() {
-    this.changeContent("../templates/home/home.html");
+    this.changeContent("../views/home/home.html");
   }
   renderContact() {
-    this.changeContent("../templates/contact/contact.html");
+    this.changeContent("../views/contact/contact.html");
   }
-  renderProjects() {
-    this.changeContent("../templates/projects/projects.html");
+  renderProjects(projectsData) {
+    this.changeContent("../views/projects/projects.html");
+    this.listenToProjectClick(projectsData);
   }
   renderAbout() {
-    this.changeContent("../templates/about/about.html");
+    this.changeContent("../views/about/about.html");
   }
   renderProfessionalXp() {
-    this.changeContent("../templates/professional-xp/professional-xp.html");
+    this.changeContent("../views/professional-xp/professional-xp.html");
   }
   renderEducation() {
-    this.changeContent("../templates/education/education.html");
+    this.changeContent("../views/education/education.html");
   }
   // Utility methods
   showError(message) {
@@ -37,12 +38,33 @@ export default class View {
     });
   }
 
-  changeContent(templatePath) {
+  changeContent(templatePath, callback) {
     const main = $("#content");
 
     if (main) {
       main.load(templatePath);
     }
+    if (callback) {
+      callback();
+    }
+  }
+  createProjectHighlight(projectData) {
+    const highlightContainer = document.getElementById("project-highlight");
+
+    const projectHighlight = document.createElement("div");
+    projectHighlight.classList.add("title-container");
+
+    const title = document.createElement("h2");
+    const subtitle = document.createElement("h5");
+
+    title.innerText = projectData.title;
+    subtitle.innerText = projectData.subtitle;
+
+    projectHighlight.appendChild(title);
+    projectHighlight.appendChild(subtitle);
+
+    highlightContainer.innerHTML = "";
+    highlightContainer.appendChild(highlightContainer);
   }
   // Listen events methods
   listenToNavClick() {

@@ -4,11 +4,10 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
 import routes from "../routes";
-window.addEventListener("load", () => {
-  const navItens = document.querySelectorAll(".nav-link");
-  navItens.forEach((item) => {
-    item.addEventListener("click", () => {
-      routes[item.dataset.link]();
-    });
+
+const navItens = document.querySelectorAll(".nav-link");
+navItens.forEach((item) => {
+  item.addEventListener("click", () => {
+    routes[item.dataset.link]();
   });
 });

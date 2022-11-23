@@ -51,4 +51,8 @@ export default class Controller {
       this.view.showError(`${e}`, "Erro ao obter página de formação!");
     }
   }
+  getProjectDescription() {
+    const projectService = new ProjectService();
+    return projectService.getProjectDescription();
+  }
 }

@@ -1,15 +1,15 @@
-@use "../templates/about/about.scss";
-@use "../templates/contact/contact.scss";
-@use "../templates/education/education.scss";
-@use "../templates/home/home.scss";
-@use "../templates/professional-xp/professional-xp.scss";
-@use "../templates/projects/projects.scss";
+@use "../views/about/about.scss";
+@use "../views/contact/contact.scss";
+@use "../views/education/education.scss";
+@use "../views/home/home.scss";
+@use "../views/professional-xp/professional-xp.scss";
+@use "../views/projects/projects.scss";
 @use "./variables";
 // Import all of Bootstrap's CSS
 @import "node_modules/bootstrap/scss/bootstrap";
 
 * {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;

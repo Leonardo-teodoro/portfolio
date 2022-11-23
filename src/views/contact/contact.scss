@@ -1,0 +1,230 @@
+@use "../../scss/variables";
+
+#contact-section {
+  background: linear-gradient(
+    116.82deg,
+    variables.$light-brown 0%,
+    rgba(44, 44, 44, 0) 100%
+  );
+  overflow: auto;
+  width: 100vw;
+  height: 150vh;
+  color: #000000;
+  .form-container {
+    flex-direction: column-reverse;
+
+    width: 90vw;
+    height: 100vh;
+    margin: 0;
+
+    background: #ffffff;
+    border-radius: 10px;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-top: 3vh;
+      text-align: center;
+      font-weight: 700;
+      font-size: 36px;
+    }
+    p {
+      align-self: center;
+      width: 82%;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 100%;
+      height: 42%;
+
+      .big-square {
+        width: 6vw;
+        height: 6vw;
+        position: absolute;
+        left: 3vw;
+
+        box-shadow: 4px 4px 4px 0px rgb(0 0 0 / 25%);
+      }
+      .form-floating {
+        color: #000000 !important;
+
+        width: 80%;
+        .form-control {
+          border: none;
+          :focus {
+            border: none;
+          }
+        }
+      }
+
+      input,
+      textarea {
+        background: #ffffff;
+        box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.25);
+        border-radius: 6px;
+      }
+      textarea {
+        max-height: 40vh;
+        margin-bottom: 4vh;
+      }
+      button {
+        margin: 8vw 8vw;
+      }
+    }
+
+    .info-container {
+      background: #000000;
+      color: #ffffffff;
+      width: 100%;
+      min-height: 43vh;
+      box-shadow: 4px 4px 4px 0px rgb(0 0 0 / 25%);
+      padding: 5vw;
+      form {
+        align-items: flex-end;
+      }
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 20px;
+        margin-bottom: 3vh;
+      }
+      p {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 26px;
+        margin: 0;
+      }
+      i {
+        margin-right: 1vw;
+      }
+    }
+    .small-square {
+      position: absolute;
+      height: 3vh;
+      width: 3vh;
+
+      box-shadow: 4px 4px 4px 0px rgb(0 0 0 / 25%);
+      left: 91%;
+      top: 10%;
+    }
+
+    .light-brown {
+      background: variables.$light-brown;
+      i {
+        font-size: 30px;
+        color: #000000;
+        margin: 0vh 0.3vw 0vh 0vw;
+        &:hover {
+          color: rgba(255, 255, 255, 0.795);
+        }
+      }
+    }
+    .socials {
+      min-height: 14vh;
+      align-items: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #contact-section {
+    background: linear-gradient(
+      116.82deg,
+      variables.$light-brown 0%,
+      rgba(44, 44, 44, 0) 100%
+    );
+    height: 100vh;
+    .form-container {
+      width: 80vw;
+      height: 80vh;
+
+      margin: 5vw 0 5vw 5vw;
+      flex-direction: row;
+      h1 {
+        font-weight: 700;
+        font-size: 48px;
+        margin-top: 0;
+        text-align: start;
+      }
+      p {
+        text-align: start;
+      }
+      .form-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 5vw;
+        width: 45%;
+        height: 100%;
+
+        .big-square {
+          width: 4vw;
+          height: 4vw;
+          position: absolute;
+          left: 12vw;
+
+          box-shadow: 4px 4px 4px 0px rgb(0 0 0 / 25%);
+        }
+        .form-floating {
+          color: #000000 !important;
+
+          width: 80%;
+          .form-control {
+            border: none;
+            :focus {
+              border: none;
+            }
+          }
+        }
+        input {
+          background: #ffffff;
+          box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.25);
+          border-radius: 6px;
+        }
+        button {
+          margin: 0;
+        }
+      }
+      .info-container {
+        background: #000000;
+        color: #ffffffff;
+        position: absolute;
+        left: 53.25%;
+        right: 7.5%;
+        top: 22.3%;
+        bottom: 27.87%;
+        padding: 3.3vh 0vw 0vh 2.3vw;
+        box-shadow: 4px 4px 4px 0px rgb(0 0 0 / 25%);
+        height: 45%;
+        width: 39.3%;
+        h2 {
+          font-size: 48px;
+          margin-bottom: 3vh;
+        }
+        p {
+          font-size: 16px;
+          margin: 0;
+        }
+        i {
+          margin-right: 1vw;
+        }
+      }
+      .small-square {
+        z-index: 9999;
+        left: -2%;
+        top: -2%;
+      }
+      .socials {
+        align-items: start;
+      }
+    }
+  }
+}

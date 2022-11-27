@@ -22,7 +22,7 @@ export default class Controller {
   }
   wantsToRenderProjects() {
     try {
-      this.view.renderProjects(this.getProjectDescription.bind(this));
+      this.view.renderProjects(this.wantsToGetProject.bind(this));
     } catch (e) {
       this.view.showError(`${e}`, "Erro ao obter página de projetos!");
     }
@@ -51,8 +51,8 @@ export default class Controller {
       this.view.showError(`${e}`, "Erro ao obter página de formação!");
     }
   }
-  getProjectDescription() {
+  async wantsToGetProject(projectName) {
     const projectService = new ProjectService();
-    return projectService.getProjectDescription();
+    return await projectService.getProject(projectName);
   }
 }

@@ -10,17 +10,21 @@
   #idrinks {
     background-image: url("../../images/drinks.jpg");
   }
-
-  background: linear-gradient(116.82deg, #d5c7bc 0%, rgba(44, 44, 44, 0) 100%);
-  height: 130vh;
+  background: linear-gradient(47deg, #d5c7bc 0%, rgba(44, 44, 44, 0) 100%);
+  height: 150vh;
   .project-container {
-    width: 20vw;
-    height: 17vh;
+    .play-icon {
+      display: none;
+    }
+    width: 75vw;
+    height: 8vh;
+    margin-bottom: 1vh;
     overflow: hidden;
     position: relative;
     .img-holder {
       width: 100%;
       height: 100%;
+      border-radius: 15px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -29,14 +33,12 @@
     }
 
     .title-container {
-      $title-container-height: 64%;
-      position: relative;
+      position: absolute;
       width: inherit;
-      height: 64%;
-      padding: 13px 0px 13px 16px;
-      border-radius: 0px 0px 10px 10px;
-      gap: 8px;
-      top: calc(100% - $title-container-height);
+      height: 100%;
+      padding: 10px;
+      border-radius: 15px;
+      top: 0%;
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(2px);
       color: #000000;
@@ -55,11 +57,67 @@
       }
     }
   }
+
+  #project-highlight {
+    animation: clickProject 1s;
+    width: 82vw;
+    height: 50vh;
+
+    margin-bottom: 5vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    transition: all ease 0.5s;
+    border-radius: 15px;
+    .title-container {
+      h5,
+      h2 {
+        text-align: center;
+      }
+      h5 {
+        margin-bottom: 3vh;
+      }
+      i {
+        position: absolute;
+        top: 10%;
+        left: 3%;
+        font-size: 30px !important;
+      }
+      p {
+        line-height: 27px;
+      }
+    }
+  }
+  #project-highlight:hover {
+    cursor: default !important;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   #projects-section {
     height: 100vh;
+    background: linear-gradient(
+      116.82deg,
+      #d5c7bc 0%,
+      rgba(44, 44, 44, 0) 100%
+    );
+    .project-container {
+      width: 20vw;
+      height: 17vh;
+
+      .img-holder {
+        border-radius: 0;
+      }
+
+      .title-container {
+        position: relative;
+        height: 64%;
+        border-radius: 0px 0px 10px 10px;
+        top: 36%;
+      }
+    }
     .bi .bi-play-fill {
       font-size: 24px !important;
     }
@@ -72,7 +130,6 @@
 
       .title-container {
         position: absolute;
-        width: inherit;
         top: 61%;
         height: 39%;
       }
@@ -100,5 +157,38 @@
     .project-container:hover .img-holder {
       transform: rotate(12deg) scale(1.5);
     }
+
+    #project-highlight {
+      width: 82vw;
+      height: 50vh;
+
+      margin: 2vh 0 5vh 0;
+
+      .title-container {
+        border-radius: 0;
+        h5,
+        h2 {
+          text-align: start;
+        }
+        i {
+          top: -100%;
+        }
+        .disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+    #project-highlight:hover {
+      cursor: default !important;
+    }
+  }
+}
+
+@keyframes clickProject {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
   }
 }

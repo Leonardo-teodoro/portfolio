@@ -28,7 +28,15 @@
     }
   }
 }
-
+@media only screen and (max-width: 393px) {
+  #professional-xp-section {
+    height: 147vh;
+    h1 {
+      text-align: center;
+      margin-top: 2vh;
+    }
+  }
+}
 @media only screen and (min-width: 768px) {
   #professional-xp-section {
     background-color: linear-gradient(

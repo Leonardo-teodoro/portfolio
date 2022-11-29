@@ -25,7 +25,14 @@
     margin-bottom: 8px;
   }
 }
-
+@media only screen and (max-width: 393px) {
+  #first-section {
+    .greetings-name {
+      font-size: 28px !important;
+      line-height: 25px;
+    }
+  }
+}
 @media only screen and (min-width: 768px) {
   #first-section {
     img {

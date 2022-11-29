@@ -1,7 +1,7 @@
 @use "../../scss/variables";
 #education-section {
-  min-height: 120vh;
   width: 100%;
+  height: 186vh;
   background: linear-gradient(
     280deg,
     variables.$light-brown 0%,
@@ -34,18 +34,30 @@
       font-size: 20px;
       line-height: 30px;
     }
-    p {
+    p,
+    a {
       font-weight: 100;
       font-size: 12px;
       line-height: 25px;
     }
 
     .date {
+      text-align: center;
       font-size: 11px;
+      margin-bottom: 10px;
     }
   }
 }
-
+@media only screen and (min-width: 281px) and (max-width: 393px) {
+  #education-section {
+    height: 260vh;
+  }
+}
+@media only screen and (max-width: 280px) {
+  #education-section {
+    height: 316vh;
+  }
+}
 @media only screen and (min-width: 768px) {
   #education-section {
     background: linear-gradient(
@@ -59,7 +71,8 @@
       font-size: 24px !important;
       line-height: 30px !important;
     }
-    p {
+    p,
+    a {
       font-weight: 100 !important;
       font-size: 16px !important;
       line-height: 25px !important;
@@ -67,7 +80,7 @@
     .timeline::before {
       content: "";
       position: absolute;
-      height: 80vh;
+      height: 141vh;
       width: 2px;
       background-color: #fff;
       left: 50%;
@@ -86,6 +99,7 @@
             top: -20px;
             right: 0px;
             position: absolute;
+            text-align: start;
           }
         }
         :nth-child(even) {

@@ -11,7 +11,7 @@
     background-image: url("../../images/drinks.jpg");
   }
   background: linear-gradient(47deg, #d5c7bc 0%, rgba(44, 44, 44, 0) 100%);
-  height: 150vh;
+  height: 128vh;
   .project-container {
     .play-icon {
       display: none;
@@ -47,6 +47,7 @@
         font-weight: 300;
         line-height: 20px;
         margin: 0;
+        text-align: center;
       }
       h2 {
         font-size: 24px;
@@ -61,7 +62,7 @@
   #project-highlight {
     animation: clickProject 1s;
     width: 82vw;
-    height: 50vh;
+    height: 56vh;
 
     margin-bottom: 5vh;
 
@@ -71,19 +72,40 @@
 
     transition: all ease 0.5s;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .icons-container {
+      display: flex;
+
+      margin: 2vw 2vw;
+
+      i {
+        position: relative;
+        font-size: 30px !important;
+      }
+      .disabled {
+        cursor: not-allowed;
+      }
+      .btn-icon {
+        width: 7vw;
+      }
+      .text-icon {
+        width: 2vw;
+      }
+    }
+
     .title-container {
+      position: static;
+      border-radius: 0 0 15px 15px;
+      top: 0%;
+
       h5,
       h2 {
         text-align: center;
       }
       h5 {
         margin-bottom: 3vh;
-      }
-      i {
-        position: absolute;
-        top: 10%;
-        left: 3%;
-        font-size: 30px !important;
       }
       p {
         line-height: 27px;
@@ -93,8 +115,84 @@
   #project-highlight:hover {
     cursor: default !important;
   }
-}
+  .icons-container {
+    justify-content: space-between;
+    color: #000000 !important;
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      .modal {
+        .modal-body {
+          p {
+            line-height: 20px;
+          }
+          h2 {
+            text-align: center;
+            i,
+            .bi-arrow-up-circle {
+              color: #00d622;
+              margin-left: 1vw;
+            }
+            i,
+            .bi-arrow-down-circle {
+              color: #ff0000;
+              margin-left: 1vw;
+            }
+          }
 
+          li {
+            font-weight: lighter;
+            margin: 1vw;
+          }
+
+          .projects-container {
+            ul {
+              list-style: none;
+              display: flex;
+              flex-wrap: wrap;
+            }
+            .project-icon {
+              width: 45px;
+              height: auto;
+            }
+
+            .google-logo {
+              height: 30px;
+            }
+            .docs-logo,
+            .instagram-logo {
+              height: 30px;
+              width: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 393px) {
+  #projects-section {
+    height: 150vh;
+  }
+  #project-highlight {
+    height: 82vh !important;
+    h2 {
+      font-size: 20px !important;
+    }
+
+    p,
+    a {
+      font-size: 12px !important;
+    }
+    .title-container {
+      h5,
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}
 @media only screen and (min-width: 768px) {
   #projects-section {
     height: 100vh;
@@ -116,6 +214,11 @@
         height: 64%;
         border-radius: 0px 0px 10px 10px;
         top: 36%;
+
+        h5,
+        h2 {
+          text-align: start;
+        }
       }
     }
     .bi .bi-play-fill {
@@ -157,24 +260,35 @@
     .project-container:hover .img-holder {
       transform: rotate(12deg) scale(1.5);
     }
-
     #project-highlight {
-      width: 82vw;
-      height: 50vh;
-
-      margin: 2vh 0 5vh 0;
-
       .title-container {
-        border-radius: 0;
         h5,
         h2 {
           text-align: start;
         }
+      }
+      .icons-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2vw 2vw;
+
         i {
-          top: -100%;
+          position: relative;
+          font-size: 30px !important;
+          margin-right: 3vw;
         }
         .disabled {
           cursor: not-allowed;
+        }
+        .btn-icon {
+          width: 7vw;
+        }
+      }
+    }
+    #project-highlight {
+      .icons-container {
+        .btn-icon {
+          width: 1.5vw;
         }
       }
     }

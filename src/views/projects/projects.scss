@@ -30,6 +30,13 @@
       background-size: cover;
 
       transition: 0.3s ease-in-out;
+      video {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
     }
 
     .title-container {

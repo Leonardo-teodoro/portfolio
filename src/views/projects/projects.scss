@@ -143,6 +143,7 @@
 
           li {
             font-weight: lighter;
+            font-size: 14px;
             margin: 1vw;
           }
 
@@ -151,6 +152,9 @@
               list-style: none;
               display: flex;
               flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-around;
+              padding: 0;
             }
             .project-icon {
               width: 45px;
@@ -275,7 +279,6 @@
         i {
           position: relative;
           font-size: 30px !important;
-          margin-right: 3vw;
         }
         .disabled {
           cursor: not-allowed;

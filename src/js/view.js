@@ -232,7 +232,7 @@ export default class View {
     const famousProjectsContainer = document.createElement("div");
     famousProjectsContainer.classList.add("projects-container");
     const famousProjectsTitle = document.createElement("h2");
-    famousProjectsTitle.innerText = "Projetos famosos";
+    famousProjectsTitle.innerText = "Utilizam essa tecnologia";
     const projectList = document.createElement("ul");
 
     for (const project of tech.projects) {

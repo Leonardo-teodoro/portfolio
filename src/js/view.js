@@ -148,36 +148,38 @@ export default class View {
   }
 
   // Utility - Tech Modal
-  createTechModal(tech) {
-    const techModal = document.createElement("div");
+  createModalContainer(techIcon) {
+    const modalContainer = document.createElement("div");
+    modalContainer.classList.add("modal", "fade");
+    modalContainer.id = techIcon;
+    modalContainer.setAttribute("tabindex", "-1");
+    modalContainer.setAttribute("aria-labelledby", `${techIcon}-label`);
+    modalContainer.setAttribute("aria-hidden", "true");
+    return modalContainer;
+  }
+  createModalButton(techIcon) {
     const btn = document.createElement("button");
     btn.setAttribute("type", "button");
     btn.classList.add("btn", "btn-light");
     btn.setAttribute("data-bs-toggle", "modal");
-    btn.setAttribute("data-bs-target", `#${tech.icon}`);
+    btn.setAttribute("data-bs-target", `#${techIcon}`);
 
     const icon = document.createElement("img");
-    icon.classList.add("bi", `bi-${tech.icon}`);
-    icon.src = `../images/${tech.icon}.svg`;
+    icon.classList.add("bi", `bi-${techIcon}`);
+    icon.src = `../assets/images/${techIcon}.svg`;
     icon.classList.add("btn-icon");
 
     btn.appendChild(icon);
-
-    techModal.appendChild(btn);
-    const modalContainer = document.createElement("div");
-    modalContainer.classList.add("modal", "fade");
-    modalContainer.id = tech.icon;
-    modalContainer.setAttribute("tabindex", "-1");
-    modalContainer.setAttribute("aria-labelledby", `${tech.icon}-label`);
-    modalContainer.setAttribute("aria-hidden", "true");
-
+    return btn;
+  }
+  createModalHeader(techIcon, techName) {
     const modalHeader = document.createElement("div");
     modalHeader.classList.add("modal-header");
 
     const header = document.createElement("h1");
     header.classList.add("modal-title");
-    header.id = `${tech.icon}-label`;
-    header.innerText = tech.name;
+    header.id = `${techIcon}-label`;
+    header.innerText = techName;
     const quitButton = document.createElement("button");
     quitButton.setAttribute("type", "button");
     quitButton.classList.add("btn-close");
@@ -186,58 +188,42 @@ export default class View {
 
     modalHeader.appendChild(header);
     modalHeader.appendChild(quitButton);
-
-    const modalBody = document.createElement("div");
-    modalBody.classList.add("modal-body");
-    const description = document.createElement("p");
-    description.innerText = tech.description;
-
-    const prosContainer = document.createElement("div");
-    const prosTitle = document.createElement("h2");
-    prosTitle.innerText = "Pros";
-    const prosIcon = document.createElement("i");
+    return modalHeader;
+  }
+  createProsNCons(isPro, techFacts) {
+    const factsContainer = document.createElement("div");
+    const factsTitle = document.createElement("h2");
+    factsTitle.innerText = isPro ? "Pros" : "Cons";
+    const factsIcon = document.createElement("i");
     //bi-arrow-up-circle
-    prosIcon.classList.add("bi", "bi-arrow-up-circle");
-    prosTitle.appendChild(prosIcon);
+    factsIcon.classList.add(
+      "bi",
+      isPro ? "bi-arrow-up-circle" : "bi-arrow-down-circle"
+    );
+    factsTitle.appendChild(factsIcon);
 
-    const prosList = document.createElement("ul");
+    const factsList = document.createElement("ul");
 
-    for (const pro of tech.pros) {
-      const proItem = document.createElement("li");
-      proItem.innerText = pro;
-      prosList.append(proItem);
+    for (const fact of techFacts) {
+      const factItem = document.createElement("li");
+      factItem.innerText = fact;
+      factsList.append(factItem);
     }
-    prosContainer.appendChild(prosTitle);
-    prosContainer.appendChild(prosList);
+    factsContainer.appendChild(factsTitle);
+    factsContainer.appendChild(factsList);
 
-    const consContainer = document.createElement("div");
-    const consTitle = document.createElement("h2");
-    consTitle.innerText = "Cons";
-    const consIcon = document.createElement("i");
-
-    consTitle.appendChild(consIcon);
-
-    consIcon.classList.add("bi", "bi-arrow-down-circle");
-
-    const consList = document.createElement("ul");
-
-    for (const con of tech.cons) {
-      const conItem = document.createElement("li");
-      conItem.innerText = con;
-      consList.append(conItem);
-    }
-    consContainer.appendChild(consTitle);
-    consContainer.appendChild(consList);
-
+    return factsContainer;
+  }
+  createFamousProjects(techProjects) {
     const famousProjectsContainer = document.createElement("div");
     famousProjectsContainer.classList.add("projects-container");
     const famousProjectsTitle = document.createElement("h2");
     famousProjectsTitle.innerText = "Utilizam essa tecnologia";
     const projectList = document.createElement("ul");
 
-    for (const project of tech.projects) {
+    for (const project of techProjects) {
       const projectIcon = document.createElement("img");
-      projectIcon.src = `../images/${project.icon}`;
+      projectIcon.src = `../assets/images/${project.icon}`;
       projectIcon.classList.add("project-icon");
 
       projectIcon.classList.add(project.icon.split(".svg").shift());
@@ -252,11 +238,9 @@ export default class View {
     }
     famousProjectsContainer.appendChild(famousProjectsTitle);
     famousProjectsContainer.appendChild(projectList);
-    modalBody.appendChild(description);
-    modalBody.appendChild(prosContainer);
-    modalBody.appendChild(consContainer);
-    modalBody.appendChild(famousProjectsContainer);
-
+    return famousProjectsContainer;
+  }
+  createModalFooter() {
     const modalFooter = document.createElement("div");
     modalFooter.classList.add("modal-footer");
 
@@ -267,6 +251,43 @@ export default class View {
     closeButton.innerText = "Fechar";
 
     modalFooter.appendChild(closeButton);
+    return modalFooter;
+  }
+  createModalBody(techDescription, techPros, techCons, techProjects) {
+    const modalBody = document.createElement("div");
+    modalBody.classList.add("modal-body");
+    const description = document.createElement("p");
+    description.innerText = techDescription;
+
+    const prosContainer = this.createProsNCons(true, techPros);
+
+    const consContainer = this.createProsNCons(false, techCons);
+
+    const famousProjectsContainer = this.createFamousProjects(techProjects);
+    modalBody.appendChild(description);
+    modalBody.appendChild(prosContainer);
+    modalBody.appendChild(consContainer);
+    modalBody.appendChild(famousProjectsContainer);
+
+    return modalBody;
+  }
+  createTechModal(tech) {
+    const techModal = document.createElement("div");
+    const btn = this.createModalButton(tech.icon);
+
+    techModal.appendChild(btn);
+    const modalContainer = this.createModalContainer(tech.icon);
+
+    const modalHeader = this.createModalHeader(tech.icon, tech.name);
+
+    const modalBody = this.createModalBody(
+      tech.description,
+      tech.pros,
+      tech.cons,
+      tech.projects
+    );
+
+    const modalFooter = this.createModalFooter();
 
     const modalDialog = document.createElement("div");
     modalDialog.classList.add("modal-dialog", "modal-dialog-scrollable");
